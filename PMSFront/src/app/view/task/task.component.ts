@@ -44,6 +44,7 @@ export class TaskComponent implements OnInit {
     this.isTaskStat=false
     this.updateTask = {};
     this.taskId = {};
+    this.tasks=[]
     if (this.projectId) {
       this.taskService.getTasks(this.projectId).subscribe(data => {
         this.tasks = data;
@@ -63,7 +64,7 @@ export class TaskComponent implements OnInit {
     this.viewTask = task;
   }
   showTaskStat(){
-    this.isTaskStat=true;
+    this.isTaskStat=!this.isTaskStat;
   }
   showAddTask() {
     this.isTaskCreate = true
